@@ -2,6 +2,7 @@ package weblotto.strategy;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -46,6 +47,12 @@ public class Auto implements Numbers {
 
     @Override
     public boolean checkNumbers(List<Integer> numbers) {
-        return false;
+        return Objects.equals(numbers, lottoNumbers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(lottoNumbers);
+        //매개값으로 주어진 값들을 이용해서 해시 코드를 생성하는 역할.
     }
 }
