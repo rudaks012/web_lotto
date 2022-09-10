@@ -1,4 +1,4 @@
-package weblotto;
+package weblotto.domain;
 
 import java.util.Collections;
 import java.util.List;

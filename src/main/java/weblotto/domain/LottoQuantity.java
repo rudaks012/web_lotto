@@ -1,4 +1,6 @@
-package weblotto;
+package weblotto.domain;
+
+import weblotto.Constant;
 
 public class LottoQuantity {
 
