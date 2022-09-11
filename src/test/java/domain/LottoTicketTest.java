@@ -25,9 +25,10 @@ public class LottoTicketTest {
         List<Integer> numbers = createLottoNumber();
         LottoTicket lottoTicket = new LottoTicket(numbers);
         // when
+        List<Integer> actual = lottoTicket.lottoNumber();
+        List<Integer> expected = numbers;
         // then
-
-        assertThat(lottoTicket.lottoNumber()).isEqualTo(numbers);
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
@@ -50,6 +51,6 @@ public class LottoTicketTest {
             "1,2,3,4,5,46"
     })
     void throw_exception_lotto_number_size_out(String input) {
-        assertThatIllegalArgumentException().isThrownBy(()-> new LottoTicket(input));
+        assertThatIllegalArgumentException().isThrownBy(() -> new LottoTicket(input));
     }
 }

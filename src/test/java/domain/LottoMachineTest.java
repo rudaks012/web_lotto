@@ -22,9 +22,10 @@ public class LottoMachineTest {
         // given
         LottoQuantity lottoQuantity = new LottoQuantity(amount);
         // when
-
+        int actual = lottoQuantity.lottoQuantity();
+        int expected = ticketCount;
         // then
-        assertThat(lottoQuantity.lottoQuantity()).isEqualTo(ticketCount);
+        assertThat(actual).isEqualTo(expected);
     }
 
     @Test
