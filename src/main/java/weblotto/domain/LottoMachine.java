@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LottoMachine {
-    private LottoQuantity lottoQuantity;
-    private List<LottoTicket> lottoTickets;
+    private final LottoQuantity lottoQuantity;
+    private final List<LottoTicket> lottoTickets;
 
     public LottoMachine(int buyAmount) {
         this.lottoQuantity = new LottoQuantity(buyAmount);
@@ -21,6 +21,7 @@ public class LottoMachine {
 
     private List<LottoTicket> createLottoTickets() {
         return Stream.generate(LottoTicket::new)
+                //generate 무한한 길이의 스트림이 생성 , limit로 정해진 개수의 객체들을 출력
                 .limit(lottoQuantity.lottoQuantity())
                 .collect(Collectors.toList());
     }

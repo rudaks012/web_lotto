@@ -6,7 +6,6 @@ public class LottoQuantity {
 
     private final int lottoQuantity;
 
-
     public LottoQuantity(int lottoQuantity) {
         this.lottoQuantity = lottoQuantity;
     }
