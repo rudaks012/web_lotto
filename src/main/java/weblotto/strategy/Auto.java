@@ -13,10 +13,14 @@ public class Auto implements Numbers {
             //int, long,double 요소를 Integer, Long, Double 요소로 박싱해서 Stream을 생성
             .collect(Collectors.toList());
 
-    private final List<Integer> lottoNumbers;
+    private final List<Integer> lottoNumber;
 
     public Auto() {
-        this.lottoNumbers = createLottoNumbers();
+        this.lottoNumber = createLottoNumbers();
+    }
+
+    public Auto(List<Integer> lottoNumber) {
+        this.lottoNumber = lottoNumber;
     }
 
     private List<Integer> createLottoNumbers() {
@@ -34,25 +38,21 @@ public class Auto implements Numbers {
         return result;
     }
 
-    public Auto(List<Integer> lottoNumbers) {
-        this.lottoNumbers = lottoNumbers;
-    }
-
 
     @Override
     public List<Integer> readOnlyNumbers() {
-        return Collections.unmodifiableList(lottoNumbers);
+        return Collections.unmodifiableList(lottoNumber);
         //list에 데이터를 추가한 뒤 더이상 데이터 삭제, 추가를 막기 위해서 사용 <- final같은 기능
     }
 
     @Override
     public boolean checkNumbers(List<Integer> numbers) {
-        return Objects.equals(numbers, lottoNumbers);
+        return Objects.equals(numbers, lottoNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lottoNumbers);
+        return Objects.hash(lottoNumber);
         //매개값으로 주어진 값들을 이용해서 해시 코드를 생성하는 역할.
     }
 }
