@@ -1,6 +1,5 @@
 package domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,7 +9,8 @@ import weblotto.domain.LottoTicket;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 public class LottoTicketTest {
 
@@ -50,11 +50,6 @@ public class LottoTicketTest {
             "1,2,3,4,5,46"
     })
     void throw_exception_lotto_number_size_out(String input) {
-        // given
-        // when
-        assertThatIllegalArgumentException().isThrownBy(()->{
-            new LottoTicket(input);
-        });
-        // then
+        assertThatIllegalArgumentException().isThrownBy(()-> new LottoTicket(input));
     }
 }
