@@ -19,7 +19,7 @@ public enum LottoRank {
         this.prize = prize;
     }
 
-    public static LottoRank findLottoRank(LottoTicket lottoTicket, Numbers winnerNumber) {
+    public static LottoRank checkTicketRank(LottoTicket lottoTicket, Numbers winnerNumber) {
         return Arrays.asList(LottoRank.values())
                 .stream()
                 .filter(lottoRank -> lottoRank.matchCount == checkLottoRank(lottoTicket, winnerNumber))
@@ -41,7 +41,7 @@ public enum LottoRank {
 
     public int winnerCount(List<LottoTicket> lottoTickets, Numbers winnerNumber) {
         return (int) lottoTickets.stream()
-                .filter(ticket -> ticket.rank(winnerNumber) == this)
+                .filter(ticket -> checkTicketRank(ticket,winnerNumber) == this)
                 .count();
     }
 }

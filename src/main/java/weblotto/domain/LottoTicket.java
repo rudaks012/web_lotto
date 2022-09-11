@@ -27,7 +27,4 @@ public class LottoTicket {
         return Collections.unmodifiableList(lottoNumbers.readOnlyNumbers());
     }
 
-    public LottoRank rank(Numbers winnerNumber) {
-        return LottoRank.findLottoRank(this, winnerNumber);
-    }
 }

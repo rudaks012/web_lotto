@@ -39,7 +39,7 @@ public class LottoRankTest {
         LottoTicket ticket = new LottoTicket(inputLottoThree);
         // when
         // then
-        assertThat(ticket.rank(winnerNumber)).isEqualTo(LottoRank.ZERO);
+        assertThat(LottoRank.checkTicketRank(ticket, winnerNumber)).isEqualTo(LottoRank.ZERO);
     }
 
     @ParameterizedTest(name = "로또 번호 일치 수:[{index}] : [{arguments}]")
@@ -47,7 +47,7 @@ public class LottoRankTest {
     @MethodSource("matchCount")
     void lotto_rank_match_count(LottoTicket ticket, LottoRank rank) {
         // given
-        assertThat(ticket.rank(winnerNumber)).isEqualTo(rank);
+        assertThat(LottoRank.checkTicketRank(ticket, winnerNumber)).isEqualTo(rank);
         // when
         // then
     }
