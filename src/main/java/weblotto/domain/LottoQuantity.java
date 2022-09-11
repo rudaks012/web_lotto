@@ -6,8 +6,8 @@ public class LottoQuantity {
 
     private final int lottoQuantity;
 
-    public LottoQuantity(int lottoQuantity) {
-        this.lottoQuantity = lottoQuantity;
+    public LottoQuantity(int buyAmount) {
+        this.lottoQuantity = amountToQuantity(buyAmount);
     }
 
     private void isBuyAmountValid(int buyAmount) {
